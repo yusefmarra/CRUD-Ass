@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var swig = require('swig');
 require('./database');
 
+var databaseSeed = require('./seed.js');
+databaseSeed();
+
 // *** routes *** //
 var routes = require('./routes/index.js');
 var api = require('./routes/api.js');
