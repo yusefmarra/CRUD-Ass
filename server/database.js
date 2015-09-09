@@ -17,5 +17,5 @@ var Student = new Schema(
 );
 
 mongoose.model('students', Student);
-mongoose.connect(mongooseURI);
+mongoose.connect('mongodb://yusef:fuckyouchuck@ds051868.mongolab.com:51868/heroku_tk99p4xd');
 // ||'mongodb://'+process.env.username+':'+process.env.password+'@localhost/students');
