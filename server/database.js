@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var uriUtil = require('mongodb-uri');
 // require('dotenv').load();
+
+var mongooseURI = uriUtil('mongodb://heroku_tk99p4xd:qjvb67trn21d3apoosio69lvrq@ds051868.mongolab.com');
 
 var Student = new Schema(
   {
@@ -14,5 +17,5 @@ var Student = new Schema(
 );
 
 mongoose.model('students', Student);
-mongoose.connect('mongodb://heroku_tk99p4xd:qjvb67trn21d3apoosio69lvrq@ds051868.mongolab.com');
+mongoose.connect(mongooseURI);
 // ||'mongodb://'+process.env.username+':'+process.env.password+'@localhost/students');
