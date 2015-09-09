@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var uriUtil = require('mongodb-uri');
 // require('dotenv').load();
 
-var mongooseURI = uriUtil.formatMongoose('mongodb://heroku_tk99p4xd:qjvb67trn21d3apoosio69lvrq@ds051868.mongolab.com');
+var mongooseURI = uriUtil.formatMongoose('mongodb://yusef:fuckyouchuck@ds051868.mongolab.com:51868/heroku_tk99p4xd');
 
 var Student = new Schema(
   {
