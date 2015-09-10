@@ -30,6 +30,9 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
 
 
+// *** Set secret token for auth *** //
+app.set('supersecret', process.env.secret);
+
 // *** config middleware *** //
 app.use(logger('dev'));
 app.use(bodyParser.json());

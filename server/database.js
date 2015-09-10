@@ -14,5 +14,14 @@ var Student = new Schema(
   }
 );
 
+var User = new Schema (
+  {
+    name: String,
+    password: String,
+    admin: Boolean
+  }
+);
+
+mongoose.model('users', User);
 mongoose.model('students', Student);
 mongoose.connect('mongodb://'+process.env.username+':'+process.env.password+'@ds051868.mongolab.com:51868/heroku_tk99p4xd'||'mongodb://'+process.env.username+':'+process.env.password+'@localhost/students');

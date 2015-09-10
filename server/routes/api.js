@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Student = mongoose.model('students');
+var User = mongoose.model('users');
+var jwt = require('jsonwebtoken');
 
 // GET all the things
 router.get('/student/all', function(req, res) {
