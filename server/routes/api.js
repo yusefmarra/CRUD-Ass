@@ -73,6 +73,9 @@ router.put('/student/:id', function(req, res) {
           res.json(err);
         }
       });
+    } else {
+      res.statusCode = 400;
+      res.json({message: "You must provide all required fields", code:400});
     }
   } else {
     res.statusCode = 400;
