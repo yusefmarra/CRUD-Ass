@@ -1,5 +1,8 @@
 // add scripts
 
 $(document).on('ready', function() {
-  console.log('sanity check!');
+  $('#login').on('click', function(e) {
+    e.preventDefault();
+    
+  });
 });

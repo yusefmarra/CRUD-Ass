@@ -5,6 +5,34 @@ var Student = mongoose.model('students');
 var User = mongoose.model('users');
 var jwt = require('jsonwebtoken');
 
+apiRouter.post('/user/add', function(req, res) {
+  if (req.body.name && req.body.password) {
+    console.log("in here");
+    new User({name:req.body.name, password:req.body.password}).save(function(err, user) {
+      if (!err) {
+        res.statusCode = 200;
+        res.json({
+          message: "User successfully created.",
+          code: 200,
+        });
+      } else {
+        if (err.code === 11000) {
+          res.statusCode = 400;
+          res.json({
+            message: "That username already exists",
+            code: 400
+          });
+        } else { throw err; }
+      }
+    });
+  } else {
+    res.statusCode = 400;
+    res.json({
+      message: "Must provide all fields",
+      code: 400
+    });
+  }
+});
 
 apiRouter.post('/authenticate', function(req, res) {
   if (req.body.name && req.body.password) {
@@ -40,16 +68,6 @@ apiRouter.post('/authenticate', function(req, res) {
             }
           } else { throw err; }
         });
-
-        // if (user.password === req.body.password) {
-
-        // } else {
-        //   res.statusCode = 400;
-        //   res.json({
-        //     message: "Authentication Failed. Wrong password",
-        //     code: 400
-        //   });
-        // }
       }
     });
   } else {
