@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
+var jwt = require('jsonwebtoken');
 require('./database');
 
 var databaseSeed = require('./seed.js');
@@ -31,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // *** Set secret token for auth *** //
-app.set('supersecret', process.env.secret);
+app.set('superSecret', process.env.secret);
 
 // *** config middleware *** //
 app.use(logger('dev'));

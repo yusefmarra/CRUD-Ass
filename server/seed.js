@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Student = mongoose.model('students');
+var User = mongoose.model('users');
+
 
 var studentSeed = [
   {
